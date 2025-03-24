@@ -96,7 +96,7 @@ public class UserDaoHibernateImpl implements UserDao {
         } catch (HibernateException e) {
             e.printStackTrace();
             // попробовал сделать rollback через try-with-resources, но как мне показалось
-            //лучше это делать через блок try catch finally, так как больше кода и приходится открывать новую сессию
+            //лучше это делать через блок try catch finally, без открытия новой сэссии
             try (Session session = Util.getSessionFactory().openSession()) {
                 if (session != null && session.getTransaction() != null) {
                     session.getTransaction().rollback();
