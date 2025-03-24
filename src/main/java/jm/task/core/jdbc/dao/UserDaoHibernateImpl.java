@@ -90,7 +90,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.getTransaction().commit();
                 System.out.println("User c " + id + " удален");
             } else {
-                System.out.println("Пользователь не найден");
+                System.out.println("Пользователь с "+id+" не найден");
                 session.getTransaction().rollback();
             }
         } catch (HibernateException e) {
